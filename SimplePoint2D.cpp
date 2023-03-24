@@ -68,11 +68,3 @@ bool SimplePoint2D::operator!=(const SimplePoint2D p)
 {
 	return !((*this) == p);
 }
-
-
-SimplePoint2D& SimplePoint2D::operator=(SimplePoint2D&& p)
-{
-	this->x = std::move(p.x);
-	this->y = std::move(p.y);
-	return *this;
-}
