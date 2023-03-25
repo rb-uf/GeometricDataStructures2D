@@ -17,6 +17,7 @@ struct Region2D::Impl {
 
     std::vector<AttributedHalfSegment2D> regionSegments;
     std::vector<HalfSegment2D> halfSegments;
+    std::vector<Segment2D> segments;
 
     void setFlags();
     SimplePoint2D GetDominatePoint(HalfSegment2D inputHalfSegment);
@@ -35,6 +36,8 @@ Region2D::Impl::~Impl() {}
 
 Region2D::Impl::Impl(std::vector<Segment2D> _regionSegments)
 {
+    this->segments = _regionSegments;
+
     std::vector<HalfSegment2D> HalfSegVec; //temporary vector of half segments for later use
     for(int i = 0; i < _regionSegments.size(); i++)
     {
@@ -176,3 +179,15 @@ Region2D::Region2D(std::vector<Segment2D> region) : pimpl(new Impl(region)) {}
 //move constructor
 Region2D::Region2D(Region2D &&region) : pimpl(std::move(region.pimpl)) {}
 
+//destructor
+Region2D::~Region2D() {}
+
+//iterator methods
+Region2D::iterator Region2D::begin()
+{
+    return this->pimpl->segments.begin();
+}
+Region2D::iterator Region2D::end()
+{
+    return this->pimpl->segments.end();
+}
