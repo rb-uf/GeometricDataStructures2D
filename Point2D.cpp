@@ -28,18 +28,15 @@ Point2D::Point2D(Point2D &&sourcePoint2D)
     sourcePoint2D.pimpl = nullptr;
 }
 
-<<<<<<< HEAD
 Point2D::~Point2D() {}
-=======
-Point2D::~Point2D(){}
 
-Point2D::iterator Point2D::begin() 
+Point2D::iterator Point2D::begin()
 {
     return this->pimpl->pointCollection.begin();
 }
 
-Point2D::iterator Point2D::end() 
+Point2D::iterator Point2D::end()
 {
     return this->pimpl->pointCollection.end();
 }
->>>>>>> 93ff9e2f1de2a6afc4b958cbc8828e83d652a30d
+

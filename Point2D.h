@@ -18,15 +18,10 @@ public:
     Point2D(Point2D const &sourcePoint2D);
     Point2D(Point2D &&sourcePoint2D);
     ~Point2D();
-<<<<<<< HEAD
-=======
 
     typedef vector<SimplePoint2D>::iterator iterator;
-
     iterator begin();
     iterator end();
-
->>>>>>> 93ff9e2f1de2a6afc4b958cbc8828e83d652a30d
 };
 
 
