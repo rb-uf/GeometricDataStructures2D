@@ -85,20 +85,19 @@ bool Region2D::Impl::GetAboveFlag(HalfSegment2D currentHalfSeg)
 bool Region2D::Impl::CheckLessThan(SimplePoint2D dp, HalfSegment2D halfSeg)
 {
     Segment2D seg = halfSeg.s;
-    SimplePoint2D leftPoint = seg.leftEndPoint;
-    SimplePoint2D rightPoint = seg.rightEndPoint;
-    Number slope = (rightPoint.y - leftPoint.y) / (rightPoint.x - leftPoint.x);
-    Number b = leftPoint.y / (slope * leftPoint.x);
+    SimplePoint2D left = seg.leftEndPoint;
+    SimplePoint2D right = seg.rightEndPoint;
+
+    // handle infinite slope
+    if (right.x == left.x) {
+        return dp < left;
+    }
+
+    Number slope = (right.y - left.y) / (right.x - left.x);
+    Number b = left.y - (slope * left.x);   // The minus '-' was originally a '/'. I think this is supposed to be based on y=mx+b, which rewrites into b=y-mx.
     Number halfSegY = (dp.x * slope) + b;
-    if(dp.y < halfSegY) 
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
- 
+
+    return dp.y < halfSegY;
 }
 
 void Region2D::Impl::setFlags()
