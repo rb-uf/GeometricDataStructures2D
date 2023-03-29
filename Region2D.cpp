@@ -48,9 +48,7 @@ Region2D::Impl::Impl(std::vector<Segment2D> _regionSegments)
     }
     std::sort(HalfSegVec.begin(), HalfSegVec.end());
 
-
     this->halfSegments = HalfSegVec;
-    setFlags();
 }
 
 SimplePoint2D Region2D::Impl::GetDominatePoint(HalfSegment2D inputHalfSegment)
@@ -144,7 +142,7 @@ void Region2D::Impl::setFlags()
         }
         else {
             //remove halfsegment from status
-            for(int  i = 0; i < sweepStatus.size(); i++) 
+            for(int  i = 0; i < sweepStatus.size(); i++)
             {
                 if(sweepStatus[i].s == currentHalfSeg.s)
                 {
