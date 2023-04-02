@@ -1,4 +1,5 @@
 #include "SimplePoint2D.h"
+#include <iostream>
 
 SimplePoint2D::SimplePoint2D()
 {
@@ -67,4 +68,9 @@ bool SimplePoint2D::operator>(const SimplePoint2D p)
 bool SimplePoint2D::operator!=(const SimplePoint2D p)
 {
 	return !((*this) == p);
+}
+
+void SimplePoint2D::print()
+{
+    std::cout << "(" << this->x << " " << this->y << ")";
 }

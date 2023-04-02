@@ -37,6 +37,10 @@ public:
     Number& operator*=(const Number& n);
     Number& operator/=(const Number& n);
 
+    Number square();
+    Number abs();
+    Number sign();
+
     // (Oscar) Input Operator
     friend std::istream& operator>>(std::istream& is, Number& n);
 

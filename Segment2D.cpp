@@ -1,5 +1,6 @@
 #include "Segment2D.h"
 #include <cmath>
+#include <iostream>
 
 Segment2D::Segment2D()		// Created default constructor so that HalfSegment2D works.
 {
@@ -114,4 +115,13 @@ SimplePoint2D Segment2D::findIntersection(Segment2D s)
 		}
 	}
 	return empty;
+}
+
+void Segment2D::print()
+{
+    std::cout << "(segment ";
+    this->leftEndPoint.print();
+    std::cout << " ";
+    this->rightEndPoint.print();
+    std::cout << ")" << std::endl;
 }

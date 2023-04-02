@@ -333,3 +333,18 @@ Number sqrt(const Number& n)
 
     return squareRoot;
 }
+
+Number Number::square()
+{
+    return (*this) * (*this);
+}
+
+Number Number::abs()
+{
+    return ((*this) < Number("0")) ? (Number("-1") * (*this)) : (*this);
+}
+
+Number Number::sign()
+{
+    return ((*this) < Number("0")) ? Number("-1") : Number("1");
+}

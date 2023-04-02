@@ -24,6 +24,8 @@ public:
     typedef std::vector<Segment2D>::iterator iterator;
     iterator begin();
     iterator end();
+    void print();
+    std::vector<Segment2D> getSegments();
 };
 
 

@@ -7,6 +7,7 @@
 #include "HalfSegment2D.h"
 #include "Segment2D.h"
 #include <memory>
+#include <iostream>
 
 //Implementation
 struct Region2D::Impl {
@@ -187,4 +188,19 @@ Region2D::iterator Region2D::begin()
 Region2D::iterator Region2D::end()
 {
     return this->pimpl->segments.end();
+}
+
+void Region2D::print()
+{
+    for (Segment2D s : this->getSegments())
+        s.print();
+}
+
+std::vector<Segment2D> Region2D::getSegments()
+{
+    std::vector<Segment2D> segments;
+    for (HalfSegment2D h : this->pimpl->halfSegments)
+        if (h.isDominatingPointLeft)
+            segments.push_back(h.s);
+    return segments;
 }
