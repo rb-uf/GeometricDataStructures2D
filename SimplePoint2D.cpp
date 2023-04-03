@@ -74,3 +74,8 @@ void SimplePoint2D::print()
 {
     std::cout << "(" << this->x << " " << this->y << ")";
 }
+
+SimplePoint2D randomSimplePoint2D(int minX, int maxX, int minY, int maxY)
+{
+    return SimplePoint2D(randomInt(minX, maxX), randomInt(minY, maxY));
+}

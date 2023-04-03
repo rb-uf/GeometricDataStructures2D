@@ -61,3 +61,12 @@ Point2D::Iterator Point2D::end()
 {
     return Iterator(&(this->pimpl->pointCollection)[this->pimpl->pointCollection.size()]);
 }
+
+Point2D randomPoint2D(long count, int minX, int maxX, int minY, int maxY)
+{
+    generateSeed();
+    std::vector<SimplePoint2D> points;
+    for (long i = 0; i < count; i++)
+        points.push_back(randomSimplePoint2D(minX, maxX, minY, maxY));
+    return Point2D(points);
+}

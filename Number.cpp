@@ -5,7 +5,8 @@
 #include <regex>
 #include <vector>
 #include "Number.h"
-
+#include <stdlib.h>
+#include <time.h>
 
 void input_string(mpz_class& a, mpz_class& b, std::string c);
 std::string output_string(mpq_class value);
@@ -347,4 +348,14 @@ Number Number::abs()
 Number Number::sign()
 {
     return ((*this) < Number("0")) ? Number("-1") : Number("1");
+}
+
+Number randomInt(int low, int high)
+{
+    return Number(std::to_string(rand() % high + low));
+}
+
+void generateSeed()
+{
+    srand(time(NULL));
 }

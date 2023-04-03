@@ -20,4 +20,7 @@ struct SimplePoint2D
     bool operator!=(const SimplePoint2D p);
     void print();
 };
+
+SimplePoint2D randomSimplePoint2D(int minX, int maxX, int minY, int maxY);
+
 #endif

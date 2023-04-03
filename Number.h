@@ -56,6 +56,7 @@ public:
 
 };
 
-
+Number randomInt(int low, int high);
+void generateSeed();
 
 #endif // NUMBER_H

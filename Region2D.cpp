@@ -204,3 +204,14 @@ std::vector<Segment2D> Region2D::getSegments()
             segments.push_back(h.s);
     return segments;
 }
+
+bool Region2D::operator==(const Region2D& other) const
+{
+    for (int i = 0; i < std::min(this->pimpl->halfSegments.size(), other.pimpl->halfSegments.size()); i++) {
+        HalfSegment2D h1 = this->pimpl->halfSegments[i];
+        HalfSegment2D h2 = other.pimpl->halfSegments[i];
+        if (h1 != h2)
+            return false;
+    }
+    return true;
+}

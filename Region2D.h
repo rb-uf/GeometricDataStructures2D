@@ -26,6 +26,7 @@ public:
     iterator end();
     void print();
     std::vector<Segment2D> getSegments();
+    bool operator==(const Region2D& other) const;
 };
 
 

@@ -64,4 +64,6 @@ class Point2D {
         Iterator end();
 };
 
+Point2D randomPoint2D(long count, int minX, int maxX, int minY, int maxY);
+
 #endif //POINT2D_H
