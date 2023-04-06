@@ -1,69 +1,71 @@
 #ifndef POINT2D_H
 #define POINT2D_H
+
 #include <vector>
-#include "SimplePoint2D.h"
 #include <memory>
+#include "SimplePoint2D.h"
 using namespace std;
 
-
 class Point2D {
-    private:
-        class Impl;
-        unique_ptr<Impl> pimpl;
-        
-    public:
-        struct Iterator{
-            public:
-                using iterator_category = input_iterator_tag;
-                using difference_type = ptrdiff_t;
-                using value_type = SimplePoint2D;
-                using pointer = SimplePoint2D*;
-                using reference = SimplePoint2D&;
+  public:
+    Point2D();
+    Point2D(vector<SimplePoint2D> _pointCollection);
+    Point2D(vector<SimplePoint2D> _pointCollection, bool deduplicate, bool sort);
+    Point2D(Point2D const &sourcePoint2D);
+    Point2D(Point2D &&sourcePoint2D);
+    ~Point2D();
+    int count();
+    void deduplicate();
+    void sort();
 
-                Iterator() {m_ptr = nullptr;}
-                Iterator(pointer ptr): m_ptr(ptr){}
+    struct Iterator {
+      public:
+        using iterator_category = input_iterator_tag;
+        using difference_type = ptrdiff_t;
+        using value_type = SimplePoint2D;
+        using pointer = SimplePoint2D*;
+        using reference = SimplePoint2D&;
 
-                const reference operator*()const{return *m_ptr;}
-                const pointer operator->(){return m_ptr;}
+        Iterator() { m_ptr = nullptr; }
+        Iterator(pointer ptr): m_ptr(ptr) {}
 
-                Iterator& operator++()
-                {
-                    m_ptr++;
-                    return *this;
-                }
-                Iterator operator++(int)
-                {
-                    Iterator tmp = *this; 
-                    ++(*this);
-                    return tmp;
-                }
+        const reference operator*() const { return *m_ptr; }
+        const pointer operator->() { return m_ptr; }
 
-                friend bool operator==(const Iterator& a, const Iterator& b)
-                {
-                    return a.m_ptr == b.m_ptr;
-                };
-                friend bool operator!=(const Iterator& a, const Iterator& b)
-                {
-                    return a.m_ptr != b.m_ptr;
-                };
+        Iterator& operator++()
+        {
+            m_ptr++;
+            return *this;
+        }
+        Iterator operator++(int)
+        {
+            Iterator tmp = *this;
+            ++(*this);
+            return tmp;
+        }
 
-
-            private:
-                pointer m_ptr;
-
+        friend bool operator==(const Iterator& a, const Iterator& b)
+        {
+            return a.m_ptr == b.m_ptr;
+        };
+        friend bool operator!=(const Iterator& a, const Iterator& b)
+        {
+            return a.m_ptr != b.m_ptr;
         };
 
-        Point2D();
-        Point2D(vector<SimplePoint2D> _pointCollection, bool _ordered);
-        Point2D(vector<SimplePoint2D> _pointCollection);
-        Point2D(Point2D const &sourcePoint2D);
-        Point2D(Point2D &&sourcePoint2D);
-        ~Point2D();
-        int count();
-        Iterator begin();
-        Iterator end();
+      private:
+        pointer m_ptr;
+    };
+
+    Iterator begin();
+    Iterator end();
+
+  private:
+    class Impl;
+    unique_ptr<Impl> pimpl;
 };
 
 Point2D randomPoint2D(long count, int minX, int maxX, int minY, int maxY);
+
 
 #endif //POINT2D_H
