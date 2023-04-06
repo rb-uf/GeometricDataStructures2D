@@ -65,7 +65,4 @@ class Point2D {
     unique_ptr<Impl> pimpl;
 };
 
-Point2D randomPoint2D(long count, int minX, int maxX, int minY, int maxY);
-
-
 #endif //POINT2D_H
