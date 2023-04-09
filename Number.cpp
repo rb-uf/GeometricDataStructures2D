@@ -30,6 +30,10 @@ Number::Number(const char* s) : pimpl (new Impl())
     input_string(this->pimpl->value.get_num(), this->pimpl->value.get_den(), std::string(s));
     this->pimpl->value.canonicalize();
 }
+Number::Number(long int i) : pimpl (new Impl())
+{
+    this->pimpl->value = mpq_class(i);
+}
 Number::Number(const Number& n) : pimpl( new Impl())
 {
     this->pimpl->value = n.pimpl->value;
@@ -356,7 +360,7 @@ Number Number::sign() const
 
 Number randomInt(int low, int high)
 {
-    return Number(std::to_string(rand() % high + low));
+    return Number(rand() % high + low);
 }
 
 void generateSeed()
