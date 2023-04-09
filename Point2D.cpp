@@ -42,7 +42,7 @@ Point2D::Point2D(Point2D &&sourcePoint2D)
 
 Point2D::~Point2D() {}
 
-int Point2D::count()
+int Point2D::count() const
 {
     return this->pimpl->pointCollection.size();
 }
@@ -63,12 +63,12 @@ void Point2D::deduplicate()
     this->pimpl->deduplicated = true;
 }
 
-Point2D::Iterator Point2D::begin()
+Point2D::Iterator Point2D::begin() const
 {
     return Iterator(&(this->pimpl->pointCollection)[0]);
 }
 
-Point2D::Iterator Point2D::end()
+Point2D::Iterator Point2D::end() const
 {
     return Iterator(&(this->pimpl->pointCollection)[this->pimpl->pointCollection.size()]);
 }

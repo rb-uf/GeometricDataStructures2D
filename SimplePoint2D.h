@@ -12,13 +12,13 @@ struct SimplePoint2D
     SimplePoint2D(SimplePoint2D&& p);
     SimplePoint2D& operator=(SimplePoint2D&& p);
     SimplePoint2D& operator=(const SimplePoint2D& p);
-    bool operator<(const SimplePoint2D p);
-    bool operator<=(const SimplePoint2D p);
-    bool operator==(const SimplePoint2D p);
-    bool operator>=(const SimplePoint2D p);
-    bool operator>(const SimplePoint2D p);
-    bool operator!=(const SimplePoint2D p);
-    void print();
+    bool operator<(const SimplePoint2D p) const;
+    bool operator<=(const SimplePoint2D p) const;
+    bool operator==(const SimplePoint2D p) const;
+    bool operator>=(const SimplePoint2D p) const;
+    bool operator>(const SimplePoint2D p) const;
+    bool operator!=(const SimplePoint2D p) const;
+    void print() const;
 };
 
 SimplePoint2D randomSimplePoint2D(int minX, int maxX, int minY, int maxY);

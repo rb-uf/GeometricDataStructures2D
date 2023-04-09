@@ -14,7 +14,7 @@ class Point2D {
     Point2D(Point2D const &sourcePoint2D);
     Point2D(Point2D &&sourcePoint2D);
     ~Point2D();
-    int count();
+    int count() const;
     void deduplicate();
     void sort();
 
@@ -57,8 +57,8 @@ class Point2D {
         pointer m_ptr;
     };
 
-    Iterator begin();
-    Iterator end();
+    Iterator begin() const;
+    Iterator end() const;
 
   private:
     class Impl;

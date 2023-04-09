@@ -335,19 +335,23 @@ Number sqrt(const Number& n)
     return squareRoot;
 }
 
-Number Number::square()
+Number Number::square() const
 {
     return (*this) * (*this);
 }
 
-Number Number::abs()
+static Number zero = Number();
+static Number negative_one = Number("-1");
+static Number one = Number("1");
+
+Number Number::abs() const
 {
-    return ((*this) < Number("0")) ? (Number("-1") * (*this)) : (*this);
+    return ((*this) < zero) ? (negative_one * (*this)) : (*this);
 }
 
-Number Number::sign()
+Number Number::sign() const
 {
-    return ((*this) < Number("0")) ? Number("-1") : Number("1");
+    return ((*this) < zero) ? negative_one : one;
 }
 
 Number randomInt(int low, int high)

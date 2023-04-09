@@ -37,7 +37,7 @@ SimplePoint2D& SimplePoint2D::operator=(SimplePoint2D&& p)
 	return *this;
 }
 
-bool SimplePoint2D::operator<(SimplePoint2D p)
+bool SimplePoint2D::operator<(SimplePoint2D p) const
 {
 	if ((*this).x < p.x)
 		return true;
@@ -45,32 +45,32 @@ bool SimplePoint2D::operator<(SimplePoint2D p)
 		return ((*this).x == p.x && (*this).y < p.y);
 }
 
-bool SimplePoint2D::operator<=(SimplePoint2D p)
+bool SimplePoint2D::operator<=(SimplePoint2D p) const
 {
 	return (*this < p || *this == p);
 }
 
-bool SimplePoint2D::operator==(SimplePoint2D p)
+bool SimplePoint2D::operator==(SimplePoint2D p) const
 {
 	return ((*this).x == p.x && (*this).y == p.y);
 }
 
-bool SimplePoint2D::operator>=(const SimplePoint2D p)
+bool SimplePoint2D::operator>=(const SimplePoint2D p) const
 {
 	return !((*this) < p);
 }
 
-bool SimplePoint2D::operator>(const SimplePoint2D p)
+bool SimplePoint2D::operator>(const SimplePoint2D p) const
 {
 	return !((*this) <= p);
 }
 
-bool SimplePoint2D::operator!=(const SimplePoint2D p)
+bool SimplePoint2D::operator!=(const SimplePoint2D p) const
 {
 	return !((*this) == p);
 }
 
-void SimplePoint2D::print()
+void SimplePoint2D::print() const
 {
     std::cout << "(" << this->x << " " << this->y << ")";
 }

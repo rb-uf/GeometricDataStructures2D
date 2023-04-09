@@ -48,6 +48,7 @@ Region2D::Impl::Impl(std::vector<Segment2D> _regionSegments)
         HalfSegVec.push_back(endHalfSeg);
     }
     std::sort(HalfSegVec.begin(), HalfSegVec.end());
+    HalfSegVec.erase(unique(HalfSegVec.begin(), HalfSegVec.end()), HalfSegVec.end());
 
     this->halfSegments = HalfSegVec;
 }
