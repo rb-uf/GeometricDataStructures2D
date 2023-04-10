@@ -11,15 +11,13 @@
 void input_string(mpz_class& a, mpz_class& b, std::string c);
 std::string output_string(mpq_class value);
 
-struct Number::Impl 
+struct Number::Impl
 {
     mpq_class value;
 };
 
 // (Oscar) Constructors/Deconstructor
-Number::Number() : pimpl( new Impl()) 
-{
-}
+Number::Number() : pimpl( new Impl()) {}
 Number::Number(std::string s) : pimpl( new Impl())
 {
     input_string(this->pimpl->value.get_num(), this->pimpl->value.get_den(), s);

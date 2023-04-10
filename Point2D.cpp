@@ -19,8 +19,8 @@ Point2D::Point2D() {}
 Point2D::Point2D(vector<SimplePoint2D> _pointCollection):pimpl(new Impl())
 {
     this->pimpl->pointCollection = _pointCollection;
-    this->deduplicate();
     this->sort();
+    this->deduplicate();
 }
 
 Point2D::Point2D(vector<SimplePoint2D> _pointCollection, bool deduplicate, bool sort) : pimpl(new Impl())
