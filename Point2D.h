@@ -59,6 +59,7 @@ class Point2D {
 
     Iterator begin() const;
     Iterator end() const;
+    bool isOrdered();
 
   private:
     class Impl;

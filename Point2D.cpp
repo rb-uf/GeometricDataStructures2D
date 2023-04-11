@@ -72,3 +72,8 @@ Point2D::Iterator Point2D::end() const
 {
     return Iterator(&(this->pimpl->pointCollection)[this->pimpl->pointCollection.size()]);
 }
+
+bool Point2D::isOrdered()
+{
+    return this->pimpl->sorted;
+}
