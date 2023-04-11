@@ -10,8 +10,8 @@ struct Point2D::Impl
     Impl(vector<SimplePoint2D> _pointCollection): pointCollection(move(_pointCollection)){};
 
     vector<SimplePoint2D> pointCollection;
-    bool deduplicated;
-    bool sorted;
+    bool deduplicated = false;
+    bool sorted = false;
 };
 
 Point2D::Point2D() {}
